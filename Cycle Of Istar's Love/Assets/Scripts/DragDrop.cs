@@ -18,7 +18,8 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private Transform Tammuz;
     [SerializeField] private Transform placeImageOnScreen;
 
-    //public GameObject heartDetect;
+    [SerializeField] private Transform MadIstar;
+
 
     private bool isDragging;
 
@@ -35,7 +36,7 @@ public class DragDrop : MonoBehaviour
 
         if (!GetComponent<Renderer>().isVisible)
         {
-            Debug.Log("Lol");
+            MadIstar.transform.position = placeImageOnScreen.transform.position;
         }
 
     }
@@ -83,12 +84,6 @@ public class DragDrop : MonoBehaviour
             }
         }
         
-       // float newscene = Random.Value;
-       // if (newscene > 0.7f)
-      //  {
-
-      //  }
-        
     }
 
 
@@ -105,7 +100,7 @@ public class DragDrop : MonoBehaviour
 
     }
 }
-//Reference
+//References:
 // https://oxmond.com/how-to-drag-and-drop-a-2d-object/
 // https://www.youtube.com/watch?v=55TBhlOt_U8&t=15s&ab_channel=OXMONDTutorials
 // https://stackoverflow.com/questions/54505849/check-if-the-object-is-off-screen
