@@ -18,7 +18,7 @@ public class Fade_In_Out : MonoBehaviour
     private bool fadeIn = false;
     public float fadeSpeed;
 
- 
+   
 
     public void FadeOutObject()
     {
@@ -31,11 +31,19 @@ public class Fade_In_Out : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        FadeOutObject();
+    }
+
     void OnMouseDown()
     {
         Debug.Log("Click");
-
-        FadeOutObject();
+        if(fadeIn == false)
+        {
+            FadeOutObject();
+        }
+        
 
     }
 
@@ -56,6 +64,7 @@ public class Fade_In_Out : MonoBehaviour
         {
 
             Color objectColor = this.GetComponent<Renderer>().material.color;
+           
             float fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
 
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
@@ -73,6 +82,8 @@ public class Fade_In_Out : MonoBehaviour
         {
             Debug.Log("HFHFHFH");
             Color objectColor = this.GetComponent<Renderer>().material.color;
+
+          
             float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
