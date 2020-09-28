@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEditorInternal;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+using UnityEngine.Audio;
 
 public class DragDrop : MonoBehaviour
 {
@@ -24,6 +26,20 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private Transform VeryMadIstar;
     [SerializeField] private Transform EndingBG;
 
+    public AudioSource audioIshullanuKick;
+    public AudioSource audioIshullanuFalling;
+    public AudioSource audioShepheredDogo;
+    public AudioSource audioShepheredGuy1;
+    public AudioSource audioShepheredGuy2;
+    public AudioSource audioStallionDrink;
+    public AudioSource audioStallionHaha;
+    public AudioSource audioTammuzWingsRips;
+    public AudioSource audioTammuzHaha;
+    public AudioSource audioMadIstar;
+    public AudioSource audioVeryMadIstar;
+
+
+
 
     private bool isDragging;
 
@@ -32,6 +48,10 @@ public class DragDrop : MonoBehaviour
     bool seenStallion = false;
     bool seenTammuz = false;
     bool allIsSeen = false;
+
+
+
+
 
 
     public void updateWhatHasBeenSeen()
@@ -56,6 +76,7 @@ public class DragDrop : MonoBehaviour
     public void OnMouseUp()
     {
         isDragging = false;
+       
 
         if (!GetComponent<Renderer>().isVisible)
         {
@@ -65,11 +86,14 @@ public class DragDrop : MonoBehaviour
                 Istar.transform.position = respawnPoint2.transform.position;
                 EndingBG.transform.position = placeImageOnScreen.transform.position;
                 VeryMadIstar.transform.position = placeImageOnScreen.transform.position;
+                audioVeryMadIstar.Play(1);
+
             }
             else
             {
                 Istar.transform.position = respawnPoint2.transform.position;
                 MadIstar.transform.position = placeImageOnScreen.transform.position;
+                audioMadIstar.Play(1);
             }
             
 
@@ -99,24 +123,40 @@ public class DragDrop : MonoBehaviour
                     Debug.Log("1");
                     seenIshullanu = true;
                     Ishullanu.transform.position = placeImageOnScreen.transform.position;
+                    
+                    audioIshullanuKick.Play(1);
+                    audioIshullanuFalling.Play(1);
+
                 }
                 if (ranInt == 2)
                 {
                     Debug.Log("2");
                     seenShephered = true;
                     Shephered.transform.position = placeImageOnScreen.transform.position;
+
+                    audioShepheredDogo.Play(1);
+                    audioShepheredGuy1.Play(1);
+                    audioShepheredGuy2.Play(1);
+
                 }
                 if (ranInt == 3)
                 {
                     Debug.Log("3");
                     seenStallion = true;
                     Stallion.transform.position = placeImageOnScreen.transform.position;
+
+                    audioStallionDrink.Play(1);
+                    audioStallionHaha.Play(1);
+
                 }
                 if (ranInt == 4)
                 {
                     Debug.Log("4");
                     seenTammuz = true;
                     Tammuz.transform.position = placeImageOnScreen.transform.position;
+
+                    audioTammuzWingsRips.Play(1);
+                    audioTammuzHaha.Play(1);
                 }
                 if (ranInt == 5)
                 {

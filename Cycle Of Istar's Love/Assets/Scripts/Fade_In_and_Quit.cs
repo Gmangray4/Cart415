@@ -46,8 +46,10 @@ public class Fade_In_and_Quit : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Click");
-
-        FadeOutObject();
+        if (fadeIn == false)
+        {
+            FadeOutObject();
+        }
 
     }
 
